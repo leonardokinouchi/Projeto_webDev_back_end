@@ -17,6 +17,11 @@ console.log("🔌 Supabase conectado?")
 console.log("URL:", process.env.SUPABASE_URL)
 console.log("Chave:", process.env.SUPABASE_KEY ? "OK" : "ERRO - faltando SUPABASE_KEY")
 
+// Define your routes
+app.get('/', (req, res) => {
+  res.json({ message: 'Hello from Express on Vercel!' });
+});
+
 // ---------------------- REGISTER ----------------------
 app.post("/api/register", async (req, res) => {
   console.log("📩 [POST] /api/register")
@@ -227,6 +232,7 @@ app.get("/api/usuario/:id", async (req, res) => {
 })
 
 
-// ---------------------- SERVIDOR ----------------------
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => console.log("🚀 Servidor rodando na porta", PORT))
+
+
+// Export the Express app
+export default app;
